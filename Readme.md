@@ -1,10 +1,10 @@
 # UsAid Khan | Personal Portfolio
 
-![Portfolio Banner](assets/banner.png)
+![Portfolio Banner](assets/usaid's-img.png)
 
 ## 🌐 Live Demo
 Check out my live portfolio here:  
-[https://usaidkhan.github.io](https://usaidkhan.github.io)
+[https://usaidkhan.github.io](https://usaidprogramz.github.io/usaidkhan.github.io/)
 
 ---
 

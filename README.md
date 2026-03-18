@@ -1,6 +1,6 @@
 # Usaid Khan | Personal Portfolio
 
-![Portfolio Banner](assets/usaid's-img)
+![Portfolio Banner](Personal-Portfolio/assets/usaid's-img)
 
 ## 🌐 Live Demo
 Check out my live portfolio here:  

@@ -1,6 +1,6 @@
-# UsAid Khan | Personal Portfolio
+# USAID Khan | Personal Portfolio
 
-![Portfolio Banner](assets/usaid's-img.png)
+[Portfolio Banner](assets/usaid's-img.png)
 
 ## 🌐 Live Demo
 Check out my live portfolio here:  

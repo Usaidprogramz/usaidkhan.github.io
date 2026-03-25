@@ -30,7 +30,7 @@ const projects = [
     id: 0,
     title: "LandingPage Website (WordPress)",
     description:
-      "WordPress business website built using Elementor and WooCommerce",
+      "WordPress Landingpage website built using Wordpress and Elementor",
     skills: ["Worldpress", "Elementor"],
     liveDemoUrl: "https://usaid.wuaze.com",
   },

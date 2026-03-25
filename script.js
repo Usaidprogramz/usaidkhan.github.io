@@ -32,7 +32,7 @@ const projects = [
     description:
       "WordPress business website built using Elementor and WooCommerce",
     skills: ["Worldpress", "Elementor"],
-    liveDemoUrl: "https://usaid.wuaze.com/",
+    liveDemoUrl: "https://usaid.wuaze.com",
   },
   {
     id: 1,

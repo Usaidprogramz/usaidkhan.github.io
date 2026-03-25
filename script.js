@@ -28,11 +28,11 @@ const testimonials = [
 const projects = [
   {
     id: 0,
-    title: "LnadingPage Website (WordPress)",
+    title: "LandingPage Website (WordPress)",
     description:
       "WordPress business website built using Elementor and WooCommerce",
     skills: ["Worldpress", "Elementor"],
-    liveDemoUrl: null,
+    liveDemoUrl: "https://usaid.wuaze.com/",
   },
   {
     id: 1,

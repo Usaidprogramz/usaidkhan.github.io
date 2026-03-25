@@ -32,7 +32,6 @@ const projects = [
     description:
       "WordPress business website built using Elementor and WooCommerce",
     skills: ["Worldpress", "Elementor"],
-    Url: "https://usaid.wuaze.com/",
     liveDemoUrl: null,
   },
   {

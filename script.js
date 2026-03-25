@@ -18,7 +18,7 @@ const testimonials = [
   },
   {
     quote:
-      "Usaid consistently delivers beyond expectations and has been a key asset to our projects. He automated our deployment pipelines, reducing release times from hours to just minutes, which had a huge impact on productivity. What stands out is his calmness under pressure and ability to collaborate seamlessly across teams. Dawood combines technical excellence with professionalism, making him a truly reliable and standout DevOps engineer.",
+      "Usaid consistently delivers beyond expectations and has been a key asset to our projects. He automated our deployment pipelines, reducing release times from hours to just minutes, which had a huge impact on productivity.",
     author: "Hamdan Ahmad",
     title: "Position: Project Manager at TechCreator",
     date: "Date: December 30, 2024",
@@ -28,11 +28,11 @@ const testimonials = [
 const projects = [
   {
     id: 0,
-    title: "3-Tier App on K8s (Minikube)",
+    title: "LnadingPage Website (WordPress)",
     description:
-      "A fully containerized real-time chat app using Node.js, React, and MongoDB, deployed with Kubernetes. It showcases my skills in cloud-native deployment, DevOps workflows, Docker, Secrets, ConfigMaps, and persistent storage for scalable infrastructure.",
-    skills: ["Nginx", "Docker", "DockerHub", "Kubernetes", "MiniKube"],
-    githubUrl: "https://github.com/idavidkhan/3-tier-app-on-k8s-minikube",
+      "WordPress business website built using Elementor and WooCommerce",
+    skills: ["Worldpress", "Elementor"],
+    Url: "https://usaid.wuaze.com/",
     liveDemoUrl: null,
   },
   {

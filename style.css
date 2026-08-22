@@ -564,6 +564,30 @@ body.dark-mode .project-card:hover {
   border-color: rgba(0, 170, 255, 0.3);
 }
 
+/* Placeholder / "coming soon" card: distinct, not clickable */
+.project-card-placeholder {
+  cursor: default;
+  opacity: 0.75;
+  border-style: dashed;
+}
+.project-card-placeholder:hover {
+  transform: none;
+  box-shadow: var(--shadow-light);
+  border-color: var(--border-light);
+}
+body.dark-mode .project-card-placeholder:hover {
+  box-shadow: var(--shadow-dark);
+  border-color: var(--border-dark);
+}
+.project-card-placeholder .project-title,
+.project-card-placeholder .project-tag {
+  color: var(--text-secondary-light);
+}
+body.dark-mode .project-card-placeholder .project-title,
+body.dark-mode .project-card-placeholder .project-tag {
+  color: var(--text-secondary-dark);
+}
+
 /* Shimmer effect on hover */
 .project-card-shimmer {
   position: absolute;

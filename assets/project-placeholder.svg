@@ -1,0 +1,13 @@
+<svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="phTitle">
+  <title id="phTitle">Project coming soon</title>
+  <rect width="800" height="300" fill="#161f28"/>
+  <rect x="16" y="16" width="768" height="268" rx="14" fill="none" stroke="#3a4552" stroke-width="2" stroke-dasharray="10 8"/>
+  <g stroke="#4fd1c5" stroke-width="2.5" opacity="0.85" stroke-linecap="round">
+    <line x1="400" y1="118" x2="400" y2="166"/>
+    <line x1="376" y1="142" x2="424" y2="142"/>
+  </g>
+  <circle cx="400" cy="142" r="34" fill="none" stroke="#4fd1c5" stroke-width="2.5" opacity="0.85"/>
+  <text x="400" y="210" font-family="'Courier New', monospace" font-size="18" fill="#9fb0bd" text-anchor="middle" letter-spacing="0.5">
+    New project coming soon
+  </text>
+</svg>

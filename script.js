@@ -4,21 +4,21 @@
 const testimonials = [
   {
     quote:
-      "Working with Usaid has been an excellent experience. He has a real talent for simplifying complex DevSecOps processes into clear, actionable steps that everyone can follow. His expertise in cloud and DevOps has often been my go-to resource, and what sets him apart is his patience and willingness to share knowledge. Dawood not only solves problems but also helps elevate the entire team's skills.",
+      "Working with Usaid has been an excellent experience. He has a real talent for turning messy, complex datasets into clear, actionable insights that everyone can follow. His expertise in Python and data analysis has often been my go-to resource, and what sets him apart is his patience and willingness to share knowledge. Usaid not only solves problems but also helps elevate the entire team's understanding of the data.",
     author: "Umair Amjad",
     title: "Position: Software Engineer at TechCreator",
     date: "Date: November 26, 2024",
   },
   {
     quote:
-      "Usaid's approach to building and maintaining reliable systems impressed us from the very beginning. He implemented a robust monitoring and alerting setup that gave us full visibility into our applications, resulting in improved performance and stability. Beyond his technical depth, he communicates clearly and works well with others, which makes collaboration easy. Dawood is a true professional we'd be more than happy to work with again.",
+      "Usaid's approach to structuring and cleaning data impressed us from the very beginning. He built a clear reporting workflow that gave us full visibility into our key metrics, resulting in faster, better-informed decisions. Beyond his technical depth, he communicates clearly and works well with others, which makes collaboration easy. Usaid is a true professional we'd be more than happy to work with again.",
     author: "Zaheer Abbas",
     title: "Position: Web Developer (Self-Employed)",
     date: "Date: February 02, 2025",
   },
   {
     quote:
-      "Usaid consistently delivers beyond expectations and has been a key asset to our projects. He automated our deployment pipelines, reducing release times from hours to just minutes, which had a huge impact on productivity.",
+      "Usaid consistently delivers beyond expectations and has been a key asset to our projects. He automated our recurring reporting process, cutting hours of manual spreadsheet work down to minutes, which had a huge impact on the team's productivity.",
     author: "Hamdan Ahmad",
     title: "Position: Project Manager at TechCreator",
     date: "Date: December 30, 2024",
@@ -28,31 +28,14 @@ const testimonials = [
 const projects = [
   {
     id: 0,
-    title: "LandingPage Website (WordPress)",
+    title: "Data Science Projects",
     description:
-      "WordPress Landingpage website built using Wordpress and Elementor",
-    skills: ["Worldpress", "Elementor"],
-    liveDemoUrl: "https://usaid.wuaze.com",
-  },
-  {
-    id: 1,
-    title: "3 Tier App K8s(Kind) with Prometheus & Grafana",
-    description:
-      "A hands-on Kubernetes project where I deployed a complete three-tier application on a Kind cluster, configured using Docker and kubectl. The setup includes full monitoring with Prometheus and Grafana installed via Helm. This project demonstrates practical DevOps skills in container orchestration, observability, and real-world infrastructure deployment.",
-    skills: ["Kubernetes", "Helm", "Kind", "Prometheus", "Grafana"],
-    githubUrl:
-      "https://github.com/idavidkhan/3-tier-App-K8s-KIND-with-Prometheus-and-Grafana/",
+      "A collection of data science and analysis notebooks covering the end-to-end workflow: data cleaning, exploratory data analysis, statistical analysis, and visualization using Python. Each project in this repository demonstrates practical skills in working with real-world datasets, uncovering patterns, and communicating findings clearly.",
+    skills: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "EDA"],
+    githubUrl: "https://github.com/Usaidprogramz/Data-Science-Projects.git",
     liveDemoUrl: null,
   },
-  {
-    id: 2,
-    title: "Ansible Web Server Configuration Management",
-    description:
-      "Developed a set of idempotent Ansible playbooks to automate the setup and configuration of Apache and Nginx web servers across multiple Linux virtual machines (provisioned with Vagrant). This ensures configuration consistency and speeds up environment setup.",
-    skills: ["Ansible", "Linux", "Vagrant", "Apache", "Nginx", "YAML"],
-    githubUrl: "https://github.com/idavidkhan/ansible-config",
-    liveDemoUrl: null,
-  },
+  // Second project slot intentionally left empty — to be added later.
 ];
 
 // ============================================================
@@ -462,7 +445,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ---- Project Modal ----
-    const projectCards = document.querySelectorAll(".project-card");
+    // Only real, clickable project cards (the "coming soon" placeholder
+    // uses a separate class and is intentionally excluded here).
+    const projectCards = document.querySelectorAll(
+      ".project-card:not(.project-card-placeholder)",
+    );
     const pModal = document.getElementById("project-modal");
     const pCloseBtn = document.getElementById("project-modal-close-btn");
     const pTitle = document.getElementById("project-modal-title");

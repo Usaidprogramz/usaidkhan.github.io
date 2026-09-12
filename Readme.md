@@ -1,4 +1,4 @@
-# USAID Khan | Personal Portfolio
+# Muhammad Usaid | Personal Portfolio
 [Portfolio Banner](assets/usaid's-img.png)
 
 ## 🌐 Live Demo

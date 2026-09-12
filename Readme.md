@@ -1,5 +1,4 @@
 # Muhammad Usaid | Personal Portfolio
-[Portfolio Banner](assets/usaid's-img.png)
 
 ## 🌐 Live Demo
 Check out my live portfolio here:  

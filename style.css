@@ -526,112 +526,137 @@ body.dark-mode .mail:hover {
   box-shadow: 0 12px 28px rgba(0, 170, 255, 0.35);
 }
 
-/* --- Projects Showcase --- */
+/* --- Projects Showcase: horizontal, scroll-snapping gallery --- */
 .projects-showcase {
-  padding-top: 2rem;
+  padding-top: 2.5rem;
+  width: min(94%, 1180px);
+  margin-inline: auto;
+  position: relative;
 }
+.projects-showcase > h3 { margin-bottom: .65rem; }
+.projects-showcase::after {
+  content: "SCROLL TO EXPLORE  →";
+  display: block;
+  margin: .9rem 0 0;
+  text-align: right;
+  color: var(--text-secondary-light);
+  font-size: .68rem;
+  letter-spacing: .16em;
+  opacity: .75;
+}
+body.dark-mode .projects-showcase::after { color: var(--text-secondary-dark); }
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-columns: clamp(270px, 31%, 360px);
+  gap: 1.35rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1.1rem .35rem 1.5rem;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary-light) transparent;
+  -webkit-overflow-scrolling: touch;
 }
+body.dark-mode .projects-grid { scrollbar-color: var(--accent-primary-dark) transparent; }
+.projects-grid::-webkit-scrollbar { height: 7px; }
+.projects-grid::-webkit-scrollbar-track { background: transparent; }
+.projects-grid::-webkit-scrollbar-thumb { background: var(--accent-primary-light); border-radius: 99px; }
+body.dark-mode .projects-grid::-webkit-scrollbar-thumb { background: var(--accent-primary-dark); }
 .project-card {
   position: relative;
-  display: block;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   background: var(--bg-secondary-light);
   border: 1px solid var(--border-light);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   text-align: left;
-  transition: all 0.45s var(--spring-ease);
+  transition: transform .45s var(--spring-ease), box-shadow .45s ease, border-color .35s ease;
   box-shadow: var(--shadow-light);
   cursor: pointer;
   will-change: transform;
+  scroll-snap-align: start;
+  transform-style: preserve-3d;
+  isolation: isolate;
 }
-body.dark-mode .project-card {
-  background: var(--bg-secondary-dark);
-  border-color: var(--border-dark);
-  box-shadow: var(--shadow-dark);
-}
-.project-card:hover {
-  transform: translateY(-12px) scale(1.03);
-  box-shadow: 0 16px 40px rgba(0, 122, 204, 0.2);
-  border-color: rgba(0, 122, 204, 0.3);
-}
-body.dark-mode .project-card:hover {
-  box-shadow: 0 16px 40px rgba(0, 170, 255, 0.22);
-  border-color: rgba(0, 170, 255, 0.3);
-}
-
-/* Placeholder / "coming soon" card: distinct, not clickable */
-.project-card-placeholder {
-  cursor: default;
-  opacity: 0.75;
-  border-style: dashed;
-}
-.project-card-placeholder:hover {
-  transform: none;
-  box-shadow: var(--shadow-light);
-  border-color: var(--border-light);
-}
-body.dark-mode .project-card-placeholder:hover {
-  box-shadow: var(--shadow-dark);
-  border-color: var(--border-dark);
-}
-.project-card-placeholder .project-title,
-.project-card-placeholder .project-tag {
-  color: var(--text-secondary-light);
-}
-body.dark-mode .project-card-placeholder .project-title,
-body.dark-mode .project-card-placeholder .project-tag {
-  color: var(--text-secondary-dark);
-}
-
-/* Shimmer effect on hover */
-.project-card-shimmer {
+.project-card::before {
+  content: "";
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: var(--shimmer-gradient);
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 15%, var(--accent-primary-light), transparent 80%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .35s ease;
   pointer-events: none;
-  transition: left 0.6s ease;
-  z-index: 2;
+  z-index: 3;
 }
-.project-card:hover .project-card-shimmer {
-  left: 160%;
+body.dark-mode .project-card { background: var(--bg-secondary-dark); border-color: var(--border-dark); box-shadow: var(--shadow-dark); }
+.project-card:hover, .project-card:focus-visible {
+  transform: translateY(-9px) scale(1.015);
+  box-shadow: 0 20px 44px rgba(0, 122, 204, .2);
+  border-color: rgba(0, 122, 204, .38);
+  outline: none;
 }
-
-.project-img {
+.project-card:hover::before, .project-card:focus-visible::before { opacity: 1; }
+body.dark-mode .project-card:hover, body.dark-mode .project-card:focus-visible {
+  box-shadow: 0 20px 44px rgba(0, 170, 255, .2);
+  border-color: rgba(0, 170, 255, .42);
+}
+.project-card-shimmer {
+  position: absolute; inset: 0 auto 0 -100%; width: 55%;
+  background: linear-gradient(110deg, transparent, rgba(255,255,255,.18), transparent);
+  pointer-events: none; transition: left .75s ease; z-index: 2;
+}
+.project-card:hover .project-card-shimmer { left: 150%; }
+/* A fixed 16:9 image stage prevents cropping and keeps every thumbnail aligned. */
+.project-card .project-img {
+  display: block;
   width: 100%;
-  height: 160px;
-  object-fit: cover;
-  transition: transform 0.5s var(--smooth-ease);
+  height: auto;
+  aspect-ratio: 8 / 3;
+  object-fit: contain;
+  object-position: center;
+  padding: 0;
+  background: #101820;
+  transition: transform .55s var(--smooth-ease), filter .45s ease;
 }
-.project-card:hover .project-img {
-  transform: scale(1.07);
-}
+.project-card:hover .project-img { transform: scale(1.035); filter: saturate(1.12); }
 .project-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  line-height: 1.4;
   font-weight: 600;
-  padding: 1rem 1rem 0.5rem 1rem;
+  padding: 1.05rem 1.1rem .45rem;
   color: var(--text-primary-light);
   transition: color var(--transition-speed);
 }
-body.dark-mode .project-title {
-  color: var(--text-primary-dark);
-}
+body.dark-mode .project-title { color: var(--text-primary-dark); }
 .project-tag {
-  font-size: 0.8rem;
+  font-size: .78rem;
+  line-height: 1.6;
+  min-height: 3.1em;
   color: var(--accent-primary-light);
-  padding: 0 1rem 1rem 1rem;
+  padding: 0 1.1rem 1.1rem;
   transition: color var(--transition-speed);
 }
-body.dark-mode .project-tag {
-  color: var(--accent-primary-dark);
+body.dark-mode .project-tag { color: var(--accent-primary-dark); }
+@media (max-width: 640px) {
+  .projects-showcase { width: 92%; }
+  .projects-grid { grid-auto-columns: minmax(0, 1fr); grid-auto-columns: 84%; gap: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .projects-grid { scroll-behavior: auto; }
+  .project-card, .project-card .project-img, .project-card::before { transition: none !important; }
 }
 
 /* --- Stats / Impact --- */
@@ -1264,6 +1289,9 @@ body.dark-mode .site-footer {
   .projects-grid {
     grid-template-columns: 1fr;
   }
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
 
   /* Modal centering on mobile */
   .modal-content {
@@ -1355,4 +1383,17 @@ body.dark-mode .site-footer {
   .magnetic-btn {
     transition: none;
   }
+}
+
+/* Project cards animate into view when their gallery scrolls into view. */
+.projects-grid .project-card {
+  opacity: 0;
+  transform: translateY(26px) scale(.985);
+  transition: opacity .65s ease, transform .65s var(--spring-ease), box-shadow .45s ease, border-color .35s ease;
+  transition-delay: calc(var(--project-order, 0) * 75ms);
+}
+.projects-grid .project-card.project-visible { opacity: 1; transform: translateY(0) scale(1); }
+.projects-grid .project-card.project-visible:hover { transform: translateY(-7px) scale(1.01); }
+@media (prefers-reduced-motion: reduce) {
+  .projects-grid .project-card { opacity: 1; transform: none; transition: none !important; }
 }

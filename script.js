@@ -28,14 +28,36 @@ const testimonials = [
 const projects = [
   {
     id: 0,
-    title: "Data Science Projects",
-    description:
-      "A collection of data science and analysis notebooks covering the end-to-end workflow: data cleaning, exploratory data analysis, statistical analysis, and visualization using Python. Each project in this repository demonstrates practical skills in working with real-world datasets, uncovering patterns, and communicating findings clearly.",
-    skills: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "EDA"],
-    githubUrl: "https://github.com/Usaidprogramz/Data-Science-Projects.git",
+    title: "FitVision AI",
+    description: "An AI-focused fitness project. Explore the repository for its implementation, project structure, and the approach used to bring computer-vision concepts into a fitness-focused application.",
+    skills: ["Python", "Artificial Intelligence", "Computer Vision", "Fitness Technology"],
+    githubUrl: "https://github.com/Usaidprogramz/FitVision-AI",
     liveDemoUrl: null,
   },
-  // Second project slot intentionally left empty — to be added later.
+  {
+    id: 1,
+    title: "NumPy Linear Regression",
+    description: "A hands-on linear regression project built with NumPy. It demonstrates the foundations of fitting a regression model and working with numerical data using Python.",
+    skills: ["Python", "NumPy", "Linear Regression", "Machine Learning"],
+    githubUrl: "https://github.com/Usaidprogramz/Data-Science-Projects/tree/main/NumPy%20Linear%20Regression%20project",
+    liveDemoUrl: null,
+  },
+  {
+    id: 2,
+    title: "Advanced EDA & Feature Engineering",
+    description: "An internship project focused on advanced exploratory data analysis and feature engineering. The repository showcases a structured workflow for understanding a dataset and preparing useful features for downstream analysis or modeling.",
+    skills: ["Python", "Pandas", "Exploratory Data Analysis", "Feature Engineering"],
+    githubUrl: "https://github.com/Usaidprogramz/DecodeLabs-Internship/tree/main/DecodeLabs_Project_1_Advanced_EDA_Feature_Engineering",
+    liveDemoUrl: null,
+  },
+  {
+    id: 3,
+    title: "Fraud Detection",
+    description: "A fraud-detection project completed as part of the DecodeLabs internship repository. Explore the notebook and code to see the data-science workflow used to investigate and identify potentially fraudulent activity.",
+    skills: ["Python", "Data Science", "Fraud Detection", "Classification"],
+    githubUrl: "https://github.com/Usaidprogramz/DecodeLabs-Internship/tree/main/DecodeLabs_Project2_Fraud_Detection",
+    liveDemoUrl: null,
+  },
 ];
 
 // ============================================================
@@ -135,6 +157,47 @@ function initMagneticButtons() {
 }
 
 // ============================================================
+// PROJECT GALLERY — reveal on scroll + subtle pointer tilt
+// ============================================================
+function initProjectGallery() {
+  const cards = document.querySelectorAll(".project-card");
+  if (!cards.length) return;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Reveal cards as they enter the viewport; stagger is based on card order.
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("project-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.18, rootMargin: "0px 0px -35px 0px" });
+    cards.forEach((card, index) => {
+      card.style.setProperty("--project-order", index);
+      revealObserver.observe(card);
+    });
+  } else {
+    cards.forEach((card) => card.classList.add("project-visible"));
+  }
+
+  if (reduceMotion) return;
+  cards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      if (event.pointerType !== "mouse") return;
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width;
+      const y = (event.clientY - rect.top) / rect.height;
+      const rotateY = (x - 0.5) * 5;
+      const rotateX = (0.5 - y) * 4;
+      card.style.transform = `perspective(900px) translateY(-7px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    card.addEventListener("pointerleave", () => { card.style.transform = ""; });
+    card.addEventListener("blur", () => { card.style.transform = ""; });
+  });
+}
+
+// ============================================================
 // 4. LOADER & AOS OBSERVER
 // ============================================================
 window.addEventListener("load", () => {
@@ -164,6 +227,8 @@ window.addEventListener("load", () => {
   );
 
   aosElements.forEach((el) => aosObserver.observe(el));
+
+  initProjectGallery();
 
   // Stats counter observer
   if (counters.length > 0) {

@@ -25,3 +25,10 @@ Proficient in Python (Pandas, NumPy, Matplotlib/Seaborn), SQL, and Excel, with a
 ```bash
 git clone https://github.com/usaidkhan/usaidkhan.github.io.git
 ```
+
+
+## Recent portfolio update
+- Preserved the original portfolio layout and existing project-card styling.
+- Replaced the placeholder project cards with four GitHub projects: FitVision AI, NumPy Linear Regression, Advanced EDA & Feature Engineering, and Fraud Detection.
+- Added an Experience section covering Data Science Intern, SEO Intern, Customer Support, and Lead Generation.
+- Added matching SVG project artwork in the `assets/` folder.

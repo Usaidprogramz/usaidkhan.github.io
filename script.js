@@ -5,15 +5,15 @@ const testimonials = [
   {
     quote:
       "Working with Usaid has been an excellent experience. He has a real talent for turning messy, complex datasets into clear, actionable insights that everyone can follow. His expertise in Python and data analysis has often been my go-to resource, and what sets him apart is his patience and willingness to share knowledge. Usaid not only solves problems but also helps elevate the entire team's understanding of the data.",
-    author: "Umair Amjad",
-    title: "Position: Software Engineer at TechCreator",
+    author: "Umar Khan",
+    title: "Position: Data Analyst at TechCreator",
     date: "Date: November 26, 2024",
   },
   {
     quote:
       "Usaid's approach to structuring and cleaning data impressed us from the very beginning. He built a clear reporting workflow that gave us full visibility into our key metrics, resulting in faster, better-informed decisions. Beyond his technical depth, he communicates clearly and works well with others, which makes collaboration easy. Usaid is a true professional we'd be more than happy to work with again.",
-    author: "Zaheer Abbas",
-    title: "Position: Web Developer (Self-Employed)",
+    author: "Muhammad Arsalan",
+    title: "Position: ML Engineer (Self-Employed)",
     date: "Date: February 02, 2025",
   },
   {
